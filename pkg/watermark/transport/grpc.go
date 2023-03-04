@@ -3,10 +3,10 @@ package transport
 import (
 	"context"
 
-	"github.com/aayushrangwala/watermark-service/api/v1/pb/watermark"
+	"github.com/Lotfi-Arif/go-project/api/v1/pb/watermark"
 
-	"github.com/aayushrangwala/watermark-service/internal"
-	"github.com/aayushrangwala/watermark-service/pkg/watermark/endpoints"
+	"github.com/Lotfi-Arif/go-project/internal"
+	"github.com/Lotfi-Arif/go-project/pkg/watermark/endpoints"
 
 	grpctransport "github.com/go-kit/kit/transport/grpc"
 )

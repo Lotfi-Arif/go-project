@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/Lotfi-Arif/go-project/internal/util"
-	"github.com/Lotfi-Arif/go-project/pkg/watermark/endpoints"
+	"github.com/Lotfi-Arif/go-project/pkg/database/endpoints"
 
 	"github.com/go-kit/kit/log"
 	httptransport "github.com/go-kit/kit/transport/http"
@@ -21,14 +21,14 @@ func NewHTTPHandler(ep endpoints.Set) http.Handler {
 		decodeHTTPServiceStatusRequest,
 		encodeResponse,
 	))
-	m.Handle("/status", httptransport.NewServer(
-		ep.StatusEndpoint,
-		decodeHTTPStatusRequest,
+	m.Handle("/update", httptransport.NewServer(
+		ep.UpdateEndpoint,
+		decodeHTTPUpdateRequest,
 		encodeResponse,
 	))
-	m.Handle("/addDocument", httptransport.NewServer(
-		ep.AddDocumentEndpoint,
-		decodeHTTPAddDocumentRequest,
+	m.Handle("/add", httptransport.NewServer(
+		ep.AddEndpoint,
+		decodeHTTPAddRequest,
 		encodeResponse,
 	))
 	m.Handle("/get", httptransport.NewServer(
@@ -36,9 +36,9 @@ func NewHTTPHandler(ep endpoints.Set) http.Handler {
 		decodeHTTPGetRequest,
 		encodeResponse,
 	))
-	m.Handle("/watermark", httptransport.NewServer(
-		ep.WatermarkEndpoint,
-		decodeHTTPWatermarkRequest,
+	m.Handle("/remove", httptransport.NewServer(
+		ep.RemoveEndpoint,
+		decodeHTTPRemoveRequest,
 		encodeResponse,
 	))
 
@@ -58,8 +58,8 @@ func decodeHTTPGetRequest(_ context.Context, r *http.Request) (interface{}, erro
 	return req, nil
 }
 
-func decodeHTTPStatusRequest(ctx context.Context, r *http.Request) (interface{}, error) {
-	var req endpoints.StatusRequest
+func decodeHTTPUpdateRequest(ctx context.Context, r *http.Request) (interface{}, error) {
+	var req endpoints.UpdateRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		return nil, err
@@ -67,8 +67,8 @@ func decodeHTTPStatusRequest(ctx context.Context, r *http.Request) (interface{},
 	return req, nil
 }
 
-func decodeHTTPWatermarkRequest(_ context.Context, r *http.Request) (interface{}, error) {
-	var req endpoints.WatermarkRequest
+func decodeHTTPRemoveRequest(_ context.Context, r *http.Request) (interface{}, error) {
+	var req endpoints.RemoveRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		return nil, err
@@ -76,8 +76,8 @@ func decodeHTTPWatermarkRequest(_ context.Context, r *http.Request) (interface{}
 	return req, nil
 }
 
-func decodeHTTPAddDocumentRequest(_ context.Context, r *http.Request) (interface{}, error) {
-	var req endpoints.AddDocumentRequest
+func decodeHTTPAddRequest(_ context.Context, r *http.Request) (interface{}, error) {
+	var req endpoints.AddRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		return nil, err

@@ -27,6 +27,12 @@ The Document Watermarking Service provides the following functionality:
 - Marking the document in one of three states: Started, InProgress, and Finished.
 - Preventing re-marking of a document after it has been watermarked.
 
+## Architecture
+
+In this project, we will have 3 microservices: Authentication Service, Database Service and the Watermark Service. We have a PostgreSQL database server and an API-Gateway.
+
+![image info](./architecture.png)
+
 ## Technologies Used
 
 This application is built using the following technologies:

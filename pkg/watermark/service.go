@@ -3,7 +3,7 @@ package watermark
 import (
 	"context"
 
-	"github.com/velotiotech/watermark-service/internal"
+	"github.com/Lotfi-Arif/go-project/internal"
 )
 
 type Service interface {

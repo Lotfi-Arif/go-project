@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/velotiotech/watermark-service/internal"
+	"github.com/Lotfi-Arif/go-project/internal"
 
 	"github.com/go-kit/kit/log"
 	"github.com/lithammer/shortuuid/v3"

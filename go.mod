@@ -1,6 +1,6 @@
 module github.com/Lotfi-Arif/go-project
 
-go 1.20
+go 1.16
 
 require (
 	github.com/go-kit/kit v0.12.0
@@ -23,6 +23,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
+	github.com/oklog/run v1.1.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	google.golang.org/genproto v0.0.0-20230303212802-e74f57abe488 // indirect

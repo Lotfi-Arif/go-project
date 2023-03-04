@@ -1,6 +1,6 @@
 package endpoints
 
-import "github.com/velotiotech/watermark-service/internal"
+import "github.com/Lotfi-Arif/go-project/internal"
 
 type GetRequest struct {
 	Filters []internal.Filter `json:"filters,omitempty"`
